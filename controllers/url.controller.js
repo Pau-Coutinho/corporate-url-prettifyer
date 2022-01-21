@@ -16,7 +16,7 @@ const generateUniqueSlug = async () => {
     if (!await slugExists(slug)) {
         return slug
     }
-    else return  await generateUniqueSlug();
+    else return await generateUniqueSlug();
 }
 
 
