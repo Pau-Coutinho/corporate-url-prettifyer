@@ -50,6 +50,6 @@ exports.getUrl =  async (req, res) => {
     if (resultSet === null) {res.redirect("about:blank")} //Obviously change this to a error page
     else {
         console.log("Redireccionando hacia");
-        res.redirect(resultSet.oldUrl);
+        res.redirect("http://"+ resultSet.OldUrl);
     }
 }

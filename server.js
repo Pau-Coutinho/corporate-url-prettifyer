@@ -1,12 +1,24 @@
 const express = require('express');
 /*This probably should go on a separate file. I don't like it this way */
 require('dotenv').config();
+require('nunjucks');
 const {sequelize} = require ("./models");
 const generateCorporateSlug  = require("./lib/corporategenerator");
 const app = new express();
 const router = require("./routes");
-app.use(router);
+const nunjucks = require('nunjucks');
 
+nunjucks.configure("views", {
+    autoescape : true,
+    express : app
+});
+
+
+
+
+
+app.set("view engine","njk");
+app.use(router);
 app.router = router;
 app.use(express.static("public"));
 
