@@ -15,8 +15,6 @@ nunjucks.configure("views", {
 
 
 
-
-
 app.set("view engine","njk");
 app.use(router);
 app.router = router;

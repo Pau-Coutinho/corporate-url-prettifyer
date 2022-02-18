@@ -37,7 +37,6 @@ exports.create = async (req, res) => {
         console.log("Se produjo un error");
         res.send(err);
     });
-    //console.log(answer);
 
 };
 
@@ -47,7 +46,7 @@ exports.getUrl =  async (req, res) => {
     }
     
     const resultSet = await db.Url.findOne({where : {newUrl : req.params.url}});
-    if (resultSet === null) {res.redirect("about:blank")} //Obviously change this to a error page
+    if (resultSet === null) {res.send("URL NO ENCONTRADA")} //Change this to a error page
     else {
         console.log("Redireccionando hacia");
         res.redirect("http://"+ resultSet.OldUrl);
